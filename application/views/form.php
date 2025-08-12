@@ -1,0 +1,352 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Reimbursement Form</title>
+	<style type="text/css">
+
+	::selection { background-color: #303030; color: white; }
+	::-moz-selection { background-color: #303030; color: white; }
+
+	body {
+		background-color: #fff;
+		margin: 64px;
+		font: 14px/18px normal Helvetica, Arial, sans-serif;
+		color: #303030;
+	}
+
+	a, button.text-button {
+		color: #2020A0;
+		background-color: transparent;
+		font-weight: normal;
+		text-decoration: none;
+		border: none;
+	}
+
+	a:hover, button.text-button:hover {
+		color: #5050ff;
+		cursor: pointer;
+	}
+
+	h1 {
+		color: #303030;
+		background-color: transparent;
+		font-size: 18px;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	h2 {
+		color: #303030;
+		background-color: transparent;
+		font-size: 16px;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	h3 {
+		color: #303030;
+		background-color: transparent;
+		font-size: 14px;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	p {
+		margin: 0;
+		color: #303030;
+		background-color: transparent;
+		font-size: 14px;
+		font-weight: normal;
+	}
+
+	#container {
+		margin: 0;
+		border: 2px solid #D0D0D0;
+		box-shadow: 0 0 8px #D0D0D0;
+		width: 100%;
+	}
+
+	img {
+		max-height: 52px;
+		width: auto;
+		display: block;
+		margin: 0 auto;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	th, td {
+		border: 2px solid #D0D0D0;
+		padding: 8px;
+		text-align: left;
+	}
+
+	th {
+		background-color: #ffffff;
+		font-weight: normal;
+	}
+
+	.table-wrapper-out {
+		border: 2px solid #606060;
+	}
+
+	.table-wrapper-in {
+		border: 2px solid #D0D0D0;
+	}
+
+	.no-border-table, .no-border-table td {
+		border: none;
+	}
+
+	.label-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+
+	.label-text {
+		text-align: left;
+	}
+
+	input[type="text"] {
+		width: 98.5%;
+		font: 14px/18px normal Helvetica, Arial, sans-serif;
+		color: #303030;
+		border: transparent;
+		outline: none;
+	}
+
+	.input-container {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.footer-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px;
+	}
+
+	.footer-buttons {
+		display: flex;
+		gap: 16px;
+	}
+
+	p.footer {
+		text-align: right;
+		font-size: 10px;
+		margin: 0;
+	}
+	</style>
+</head>
+
+<body>
+<div id="container">
+<form id="reimbursementForm" onsubmit="submitForm(event)">
+	<div class="table-wrapper-out">
+	<table>
+		<tbody>
+			<tr>
+				<td style="width: 15%; text-align: center; font-weight: bold;" rowspan="2">
+					<img src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg" alt="PICS Logo">
+				</td>
+				<td style="width: 65%; text-align: center; font-weight: bold;">
+					<h2>PT XXXXXXXXXX XXXXX XXXXX</h2>
+				</td>
+				<td style="width: 8%; text-align: right; font-weight: bold;">
+					<h2>Form No.</h2>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="form_number" 
+				placeholder="......" required></td>
+			</tr>
+			<tr>
+				<td style="width: 65%; text-align: center; font-weight: bold;" rowspan="2">
+					<h2>REIMBURSEMENT</h2>
+				</td>
+				<td style="width: 8%; text-align: right; font-weight: bold;">
+					<h2>Rev. No.</h2>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="revision_number" 
+				placeholder="......" required></td>
+			</tr>
+			<tr>
+				<td style="width: 15%; text-align: center; font-weight: bold;">
+					<h2>FORM</h2>
+				</td>
+				<td style="width: 8%; text-align: right; font-weight: bold;">
+					<h2>Issued Date</h2>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="issued_date" 
+				placeholder="......" required></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="table-wrapper-in">
+	<table class="no-border-table">
+		<tbody>
+			<tr>
+				<td style="width: 15%; text-align: left; font-weight: bold;">
+					<span class="label-container"><span class="label-text">NAME</span><span>:</span></span>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="name" 
+				placeholder="................................................................" required></td>
+				<td style="width: 15%; text-align: left; font-weight: bold;">
+					<span class="label-container"><span class="label-text">REIMBURSEMENT DATE</span><span>:</span></span>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="reimbursement_date" 
+				placeholder="................................................................" required></td>
+			</tr>
+			<tr>
+				<td style="width: 15%; text-align: left; font-weight: bold;">
+					<span class="label-container"><span class="label-text">S. N.</span><span>:</span></span>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="serial_number" 
+				placeholder="................................................................" required></td>
+				<td style="width: 15%; text-align: left; font-weight: bold;">
+					<span class="label-container"><span class="label-text">ACC. NAME</span><span>:</span></span>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="account_name" 
+				placeholder="................................................................" required></td>
+			</tr>
+			<tr>
+				<td style="width: 15%; text-align: left; font-weight: bold;">
+					<span class="label-container"><span class="label-text">DEPARTMENT</span><span>:</span></span>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="department" 
+				placeholder="................................................................" required></td>
+				<td style="width: 15%; text-align: left; font-weight: bold;">
+					<span class="label-container"><span class="label-text">ACC. NO.</span><span>:</span></span>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="account_number" 
+				placeholder="................................................................" required></td>
+			</tr>
+			<tr>
+				<td style="width: 15%; text-align: left; font-weight: bold;">
+					<span class="label-container"><span class="label-text">BRANCH</span><span>:</span></span>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="branch" 
+				placeholder="................................................................" required></td>
+				<td style="width: 15%; text-align: left; font-weight: bold;">
+					<span class="label-container"><span class="label-text">BANK</span><span>:</span></span>
+				</td>
+				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="bank" 
+				placeholder="................................................................" required></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th style="width: 10%; text-align: center;" rowspan="2"><h3>DATE</h3></th>
+				<th style="width: 10%; text-align: center;" rowspan="2"><h3>LOCATION</h3></th>
+				<th style="width: 45%; text-align: center;" rowspan="2"><h3>DESCRIPTION</h3></th>
+				<th style="width: 16%; text-align: center;" colspan="2"><h3>INFORMATION</h3></th>
+				<th style="width: 19%; text-align: center;" rowspan="2"><h3>TOTAL REIMBURSEMENT</h3></th>
+			</tr>
+			<tr>
+				<th style="width: 8%; text-align: center;"><h3>QTY</h3></th>
+				<th style="width: 8%; text-align: center;"><h3>AMOUNT</h3></th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php for ($i = 1; $i <= 18; $i++): ?>
+			<tr>
+				<td><input type="text" name="details[<?php echo $i; ?>][date]"></td>
+				<td><input type="text" name="details[<?php echo $i; ?>][location]"></td>
+				<td><input type="text" name="details[<?php echo $i; ?>][description]"></td>
+				<td><input type="text" name="details[<?php echo $i; ?>][qty]"></td>
+				<td><input type="text" name="details[<?php echo $i; ?>][amount]"></td>
+				<td><div class="input-container"><span>Rp</span><input type="text" name="details[<?php echo $i; ?>][total_reimbursement]"><span>-</span></div></td>
+			</tr>
+			<?php endfor; ?>
+			<tr>
+				<td style="border-right: none;" colspan="3"></td>
+				<td style="border-left: none; text-align: center;" colspan="2"><h3>TOTAL REIMBURSEMENT</h3></td>
+				<td style="font-weight: bold;"><div class="input-container"><span>Rp</span><input type="text" name="total_reimbursement"><span>-</span></div></td>
+			</tr>
+		</tbody>
+	</table>
+	<table>
+		<tbody>
+			<tr>
+				<td style="background-color: #D0D0D0;"></td>
+			</tr>
+		</tbody>
+	</table>
+	<table>
+		<thead>
+			<tr>
+				<th style="width: 16.67%; text-align: center;" rowspan="2"><h3>PREPARED / REQUESTED BY</h3></th>
+				<th style="width: 33.34%; text-align: center;" colspan="2"><h3>CHECKED BY</h3></th>
+				<th style="width: 33.34%; text-align: center;" colspan="2"><h3>APPROVED BY</h3></th>
+				<th style="width: 16.67%; text-align: center;" rowspan="2"><h3>RECEIVED BY</h3></th>
+			</tr>
+			<tr>
+				<th style="width: 16.67%; text-align: center;"><h3>DIRECT SUPERIOR</h3></th>
+				<th style="width: 16.67%; text-align: center;"><h3>FINANCE SPV</h3></th>
+				<th style="width: 16.67%; text-align: center;"><h3>FINANCE MANAGER</h3></th>
+				<th style="width: 16.67%; text-align: center;"><h3>DIRECTOR</h3></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="height: 80px;"></td>
+				<td style="height: 80px;"></td>
+				<td style="height: 80px;"></td>
+				<td style="height: 80px;"></td>
+				<td style="height: 80px;"></td>
+				<td style="height: 80px;"></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;">Date :</td>
+				<td style="text-align: left;">Date :</td>
+				<td style="text-align: left;">Date :</td>
+				<td style="text-align: left;">Date :</td>
+				<td style="text-align: left;">Date :</td>
+				<td style="text-align: left;">Date :</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<table>
+		<tfoot>
+			<tr>
+				<td style="width: 100%; border: none; padding: 0;" colspan="4">
+					<div class="footer-container">
+						<div class="footer-buttons">
+							<button type="submit" class="text-button">Submit</button>
+							<button type="button" class="text-button" onclick="saveAsPDF()">Save as PDF</button>
+						</div>
+						<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+					</div>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</form>
+</div>
+
+<script>
+
+	function submitForm() {
+		alert("Submit Form functionality is not implemented yet.");
+	}
+
+	function saveAsPDF() {
+		alert("Save as PDF functionality is not implemented yet.");
+	}
+
+</script>
+
+</body>
+</html>
