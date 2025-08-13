@@ -1,0 +1,25 @@
+{
+  "name": "reimbursementform",
+  "version": "1.0.0",
+  "description": "Made with CodeIgniter 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ganarkf/reimbursement-form-example-codeigniter3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ganarkf/reimbursement-form-example-codeigniter3/issues"
+  },
+  "homepage": "https://github.com/ganarkf/reimbursement-form-example-codeigniter3#readme",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
