@@ -69,8 +69,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		width: 100%;
 	}
 
-	img {
-		max-height: 52px;
+	.logo {
+		max-height: 96px;
 		width: auto;
 		display: block;
 		margin: 0 auto;
@@ -155,9 +155,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="table-wrapper-out">
 	<table>
 		<tbody>
-			<tr>
+			<tr style="height: 64px;">
 				<td style="width: 15%; text-align: center; font-weight: bold;" rowspan="2">
-					<img src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg" alt="PICS Logo">
+					<img class="logo" src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg" alt="PICS Logo">
 				</td>
 				<td style="width: 65%; text-align: center; font-weight: bold;">
 					<h2>PT XXXXXXXXXX XXXXX XXXXX</h2>
@@ -168,7 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="form_number" 
 				placeholder="......" required></td>
 			</tr>
-			<tr>
+			<tr style="height: 64px;">
 				<td style="width: 65%; text-align: center; font-weight: bold;" rowspan="2">
 					<h2>REIMBURSEMENT</h2>
 				</td>
@@ -178,7 +178,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<td style="width: 35%; text-align: left; font-weight: normal;"><input type="text" name="revision_number" 
 				placeholder="......" required></td>
 			</tr>
-			<tr>
+			<tr style="height: 64px;">
 				<td style="width: 15%; text-align: center; font-weight: bold;">
 					<h2>FORM</h2>
 				</td>
