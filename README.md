@@ -1,2 +1,2 @@
-# This is Reimbursement Form Example
+# Reimbursement Form Example
 Made with CodeIgniter 3
